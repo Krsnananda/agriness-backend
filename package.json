@@ -10,6 +10,7 @@
   "main": "index.js",
   "repository": "https://github.com/Krsnananda/agriness-backend.git",
   "author": "Krsnananda",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
