@@ -2,8 +2,10 @@
   "name": "agriness-backend",
   "version": "1.0.0",
   "scripts": {
-    "start": "ts-node src/app.ts",
-    "build": "tsc",
+    "start": "node src/app.ts",
+    "postinstall": "tsc",
+    "watch-node": "nodemon src/app.ts",
+    "watch-ts": "tsc -w",
     "dev": "nodemon --config nodemon.json src/app.ts"
   },
   "description": "Backend de aplicação Agriness",
