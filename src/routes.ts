@@ -1,5 +1,5 @@
 import { Express, Request, Response } from "express";
-import { validateRequest } from './middleware'
+import { validateRequest, requiresUser } from './middleware'
 import { createUserHandler } from "./controller/user";
 import { createUserSchema } from "./schema/user";
 
@@ -8,4 +8,7 @@ export default function (app: Express) {
 
   // Register user
   app.post("/api/users", validateRequest(createUserSchema), createUserHandler);
+
+  // Delete user
+  app.delete("/api/sessions", requiresUser);
 }
