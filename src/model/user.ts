@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-UserSchema.pre("save", async function (next: mongoose.HookNextFunction) {
+UserSchema.pre("save", async function (next) {
   let user = this as UserDocument;
 
   // only hash the password if it has been modified (or is new)
