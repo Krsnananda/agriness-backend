@@ -5,8 +5,8 @@ import { UserDocument } from "../model/user";
 import { get } from "lodash";
 import { findUser } from "./user";
 
-export async function createSession(userId: string, userAgent: string) {
-  const session = await Session.create({ user: userId, userAgent });
+export async function createSession(userId: any, userAgent: string) {
+  const session: any = await Session.create({ user: userId, userAgent });
 
   return session.toJSON();
 }
@@ -17,9 +17,10 @@ export function createAccessToken({
 }: {
   user:
   // Allows a user object that has had the password omitted
-  | Omit<UserDocument, "password">
+  any | Omit<UserDocument, "password">
   // Allows a user object that has been found with .lean()
   | LeanDocument<Omit<UserDocument, "password">>;
+
   session:
   // Allows a session object that has had the password omitted
   | Omit<SessionDocument, "password">
