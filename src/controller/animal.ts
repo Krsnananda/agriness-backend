@@ -43,7 +43,7 @@ export async function getAnimalHandler(req: Request, res: Response) {
   return res.send(animal);
 }
 
-export async function deletAnimalHandler(req: Request, res: Response) {
+export async function deleteAnimalHandler(req: Request, res: Response) {
   const id = get(req, "params.id");
 
   const animal = await findAnimal({ id });
