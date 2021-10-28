@@ -7,8 +7,7 @@ import { createUserSchema } from "./schema/user";
 export default function (app: Express) {
   app.get("/healthcheck", (req: Request, res: Response) => res.sendStatus(200));
 
-  // Register user
-  app.post("/api/users", validateRequest(createUserSchema), createUserHandler);
+  app.post("/api/user", validateRequest(createUserSchema), createUserHandler);
 
   // Delete user
   app.delete("/api/sessions", requiresUser);
