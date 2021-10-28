@@ -1,4 +1,4 @@
-import { LeanDocument, FilterQuery } from "mongoose";
+import { LeanDocument, FilterQuery, UpdateQuery } from "mongoose";
 import { decode } from "../utils/jwt";
 import Session, { SessionDocument } from "../model/session";
 import { UserDocument } from "../model/user";
@@ -64,8 +64,4 @@ export async function updateSession(
   update: UpdateQuery<SessionDocument>
 ) {
   return Session.updateOne(query, update);
-}
-
-export async function findSessions(query: FilterQuery<SessionDocument>) {
-  return Session.find(query).lean();
 }
