@@ -41,3 +41,22 @@ export async function getUserSessionsHandler(req: Request, res: Response) {
 
   return res.send(sessions);
 }
+
+export async function invalidateUserSessionHandler(
+  req: Request,
+  res: Response
+) {
+  const sessionId = get(req, "user.session");
+
+  await updateSession({ _id: sessionId }, { valid: false });
+
+  return res.sendStatus(200);
+}
+
+export async function getUserSessionsHandler(req: Request, res: Response) {
+  const userId = get(req, "user._id");
+
+  const sessions = await findSessions({ user: userId, valid: true });
+
+  return res.send(sessions);
+}

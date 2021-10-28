@@ -1,7 +1,7 @@
 import { Express, Request, Response } from "express";
 import { validateRequest, requiresUser } from './middleware'
 import { createUserHandler } from "./controller/user";
-import { getUserSessionsHandler, createUserSessionHandler } from "./controller/session";
+import { getUserSessionsHandler, createUserSessionHandler, invalidateUserSessionHandler } from "./controller/session";
 import { createUserSchema, createUserSessionSchema } from "./schema/user";
 
 export default function (app: Express) {
@@ -17,10 +17,12 @@ export default function (app: Express) {
     createUserSessionHandler
   );
 
-  // Delete user
-  app.delete("/api/sessions", requiresUser);
+  // Logout
+  app.delete("/api/logout", requiresUser, invalidateUserSessionHandler);
 
   // Get the user's sessions
   app.get("/api/sessions", requiresUser, getUserSessionsHandler);
+
+
 
 }
