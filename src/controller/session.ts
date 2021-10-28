@@ -3,9 +3,8 @@ import { LeanDocument } from "mongoose";
 import { Request, Response } from "express"
 import { get } from "lodash";
 import { validatePassword } from "../service/user";
-import { findSessions, createAccessToken, createSession } from "../service/session";
+import { findSessions, createAccessToken, createSession, updateSession } from "../service/session";
 import { sign } from '../utils/jwt'
-import { UserDocument } from "../model/user";
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   // validate the email and password
@@ -51,12 +50,4 @@ export async function invalidateUserSessionHandler(
   await updateSession({ _id: sessionId }, { valid: false });
 
   return res.sendStatus(200);
-}
-
-export async function getUserSessionsHandler(req: Request, res: Response) {
-  const userId = get(req, "user._id");
-
-  const sessions = await findSessions({ user: userId, valid: true });
-
-  return res.send(sessions);
 }

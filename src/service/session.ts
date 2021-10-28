@@ -58,3 +58,14 @@ export async function reIssueAccessToken({
 export async function findSessions(query: FilterQuery<SessionDocument>) {
   return Session.find(query).lean();
 }
+
+export async function updateSession(
+  query: FilterQuery<SessionDocument>,
+  update: UpdateQuery<SessionDocument>
+) {
+  return Session.updateOne(query, update);
+}
+
+export async function findSessions(query: FilterQuery<SessionDocument>) {
+  return Session.find(query).lean();
+}
