@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "ts-node src/app.ts",
+    "build": "tsc",
     "dev": "nodemon --config nodemon.json src/app.ts"
   },
   "description": "Backend de aplicação Agriness",
