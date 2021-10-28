@@ -5,11 +5,11 @@ import log from "../logger";
 function connect() {
   const dbUri = config.get("dbUri") as string;
 
-  return mongoose
-    .connect(dbUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+
+  return mongoose.connect(dbUri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  } as mongoose.ConnectOptions)
     .then(() => {
       log.info("Database connected");
     })
