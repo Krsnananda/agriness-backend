@@ -11,11 +11,8 @@ import Animal, { AnimalDocument } from "../model/animal";
 //   return Animal.create(input);
 // }
 
-export function findAll(
-  query: FilterQuery<AnimalDocument>,
-  options: QueryOptions = { lean: true }
-) {
-  return Animal.find({}, {}, options)
+export function findAll() {
+  return Animal.find()
 }
 
 export function findAnimal(
@@ -33,6 +30,6 @@ export function findAndUpdate(
   return Animal.findOneAndUpdate(query, update, options);
 }
 
-export function deletePost(query: FilterQuery<AnimalDocument>) {
+export function deleteAnimal(query: FilterQuery<AnimalDocument>) {
   return Animal.deleteOne(query);
 }
