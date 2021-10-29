@@ -4,8 +4,8 @@ const payload = {
   body: object({
     id: string().required("Id é obrigatório"),
     nome: string().required("Nome é obrigatório"),
-    tipoAnimal: number().required("Tipo de animal é obrigatório"),
-    statusAnimal: string().required("Status do animal é obrigatório"),
+    tipoAnimal: string().required("Tipo de animal é obrigatório"),
+    statusAnimal: number().required("Status do animal é obrigatório"),
     localizacao: string().required("Localização é obrigatória"),
     dataNascimento: string().required("Data de nascimento do animal é obrigatório"),
     entradaPlantel: string().required("Data de entrada do plantel é obrigatório"),
