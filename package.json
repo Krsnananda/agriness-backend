@@ -10,10 +10,6 @@
   "repository": "https://github.com/Krsnananda/agriness-backend.git",
   "author": "Krsnananda",
   "license": "MIT",
-  "engines": {
-    "node": "10.x",
-    "npm": "6.x"
-  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "config": "^3.3.6",
